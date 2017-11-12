@@ -1,7 +1,18 @@
 <!DOCTYPE HTML>
 <html>
 <head>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'blogger/style.css' %}" />
     <title>Index</title>
 </head>
-
+<body>
+<div id="wrapper">
+    <h1 class="title">Blogger</h1>
+    <h1 class="subtitle">A place for thoughts</h1>
+    <center>
+        <a class="button_front" href="{{ 'blogger/login.html' }}">Login</a>
+        <a class="button_front" href="{{ 'blogger/signup.html' }}">Signup</a>
+    </center>
+</div>
+</body>
 </html>

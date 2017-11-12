@@ -1,0 +1,25 @@
+.wrapper{
+  width: 500px;
+  margin: 0 auto;
+  border: solid black 3px;
+}
+.title{
+  font-size: 2em;
+  text-align: center;
+  font-family: Gotham;
+}
+.subtitle{
+  font-size: 0.3em;
+  margin-top: -15px;
+  text-align: center;
+  font-family: gotham;
+}
+.button_front{
+  text-decoration: none;
+  color: black;
+  border-color: blue;
+  border-radius: 3px;
+  border-width: 2px;
+  border-style: groove;
+  text-align: center;
+}
