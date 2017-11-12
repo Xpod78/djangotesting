@@ -25,12 +25,15 @@ SECRET_KEY = '%+5*b8&(m&eeeop+sjvi*ud(vb7cxo2c60=j2uks7yjcwhlcpv'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '0.0.0.0',
+]
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'blogger',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
