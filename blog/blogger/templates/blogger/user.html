@@ -1,6 +1,15 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>Profile</title>
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'blogger/style.css' %}" />
+  <title>Profile</title>
 </head>
+<body>
+  <h4> Welcome, {{ user.username }}.</h4>
+  <p>Menu Bar</p>
+  <a class="button_front" href="">Logout</a>
+  <a class="button_front" href="">New Entry</a>
+  <a class="button_front" href="">All Entries</a>
+</body>
 </html>
