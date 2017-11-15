@@ -9,8 +9,15 @@ class UserPageView(View):
     def get(self, request):
         return render(request, 'blogger/user.html')
 
+class LoginView(FormView):
+    
+    def get(self, request):
+        return render(request, 'blogger/login.html')
 
+class SignUpView(FormView):
 
+    def get(self, request):
+        return render(request, 'blogger/signup.html')
 
 
 

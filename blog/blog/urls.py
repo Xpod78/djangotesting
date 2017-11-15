@@ -19,7 +19,7 @@ from django.contrib import admin
 from . import views
 
 urlpatterns = [
-    url(r'^$', views.IndexPageView.as_view(), name='index'),
     url(r'^blogger/', include('blogger.urls')),
+    url(r'^$', views.IndexPageView.as_view(), name='index'),
     url(r'^admin/', admin.site.urls),
 ]
