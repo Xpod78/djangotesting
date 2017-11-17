@@ -23,3 +23,15 @@
   border-style: groove;
   text-align: center;
 }
+.p_title{
+  text-align: center;
+  font-size: 1em;
+}
+.p_content{
+  text-align: center;
+}
+.warning{
+  color: red;
+  text-align: center;
+  font-size: 1.5em;
+}

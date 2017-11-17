@@ -13,6 +13,9 @@ def signup(request):
             form.save()
             username = form.cleaned_data.get('username')
             raw_password = form.cleaned_data.get('pass')
+	    first_name = form.cleaned_data.get('firstname')
+	    last_name = form.cleaned_data.get('lastname')
+ 	    email_address = form.cleaned_data.get('email')
             user = authenticate(username=username, password=raw_password)
             login(request, user)
             return redirect('blogger/index.html')
@@ -23,16 +26,6 @@ class UserPageView(View):
     
     def get(self, request):
         return render(request, 'blogger/user.html')
-
-class LoginView(FormView):
-    
-    def get(self, request):
-        return render(request, 'blogger/login.html')
-
-class SignUpView(FormView):
-
-    def get(self, request):
-        return render(request, 'blogger/signup.html')
 
 
 

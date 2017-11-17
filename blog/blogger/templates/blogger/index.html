@@ -9,10 +9,22 @@
 <div id="wrapper">
     <h1 class="title">Blogger</h1>
     <h1 class="subtitle">A place for thoughts</h1>
+    <hr>
     <center>
-        <a class="button_front" href="blogger/">Login</a>
-        <a class="button_front" href="blogger/signup">Signup</a>
-    </center>
+        {% if user.is_authenticated %}
+          <a class="button_front" href="{% url 'logout' %}">Logout</a>
+          <a class="button_front" href="">Personal Blog Entries</a>
+          <a class="button_front" href="">New Entry</a>
+        {% else %}
+          <a class="button_front" href="{% url 'login' %}">Login</a>
+          <a class="button_front" href="{% url 'signup_page' %}">Signup</a>
+        {% endif %} 
+   </center>
+   <main>
+   {% block content %}
+   {% endblock %}
+   </main>
+   <hr>
 </div>
 </body>
 </html>
