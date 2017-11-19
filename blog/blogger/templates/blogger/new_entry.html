@@ -1,6 +1,11 @@
-<!DOCTYPE HTML>
-<html>
-<head>
-    <title>New Entry</title>
-</head>
-</html>
+{% extends 'blogger/index.html' %}
+{% block title %}New Entry{% endblock %}
+
+{% block content %}
+  {% if user.is_authenticated %}
+    <p>Test</p>
+  {% else %}
+    <h1 class="warning">You need to login in order to view this feature</h1>
+  {% endif %}
+
+{% endblock %}
