@@ -1,10 +1,29 @@
+
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, render_to_response, get_object_or_404
 from django.views.generic import View, ListView, FormView
+from django.template import RequestContext
+
+from .models import Post
+from forms import PostForm
+
+def post_list(request):
+    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('date_last_updated')
+    return render(request, 'blogger/all_blogs.html')
+
+def add_post(request):
+    form = PostForm(request.POST or None)
+    if form.is_valid():
+        post = form.save(commit=False)
+        post.author = request.user
+        post.save()
+        return redirect(post)
+    return render_to_response('blogger/new_entry.html', 
+                              { 'form': form }, request)
 
 def signup(request):
     if request.method == 'POST':
