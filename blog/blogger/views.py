@@ -2,18 +2,40 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
+from django.utils import timezone
 from django.contrib.auth import login, authenticate
+from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect, render_to_response, get_object_or_404
 from django.views.generic import View, ListView, FormView
 from django.template import RequestContext
 
 from .models import Post
-from forms import PostForm
+from .forms import PostForm
+
+def new_entry(request):
+    if request.method == "POST":
+        form = PostForm()
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.author = User
+            post.date_created = timezone.now()
+            post.date_last_modified = timezone.now()
+            post.save()
+            return redirect('post_page', pk=post.pk) 
+    else:
+        form = PostForm()
+    return render(request, 'blogger/new_entry.html', {'form': form})
+	    
+    return render(request, 'blogger/new_entry.html', {'form': form})
+
+def post_page(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    return render(request, 'blogger/post.html', {'post': post})
 
 def post_list(request):
-    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('date_last_updated')
-    return render(request, 'blogger/all_blogs.html')
+    posts = Post.objects.filter(date_created__lte=timezone.now()).order_by('date_last_modified')
+    return render(request, 'blogger/all_blogs.html', {'posts': posts})
 
 def add_post(request):
     form = PostForm(request.POST or None)

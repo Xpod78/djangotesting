@@ -1,0 +1,9 @@
+{% extends 'blogger/index.html' %}
+{% block content %}
+  <h1 class="title"> {{ post.title }} </h1>
+  <div class="post">
+    <p class="date">Written by <a href="">{{ post.author }}</a></p>
+    <p class="date"> Published: {{ post.date_created }}, Last Modified: {{ post.date_last_mod$
+    <p class="content">{{ post.content|linebreaksbr }}</p>
+  </div>
+{% endblock %}

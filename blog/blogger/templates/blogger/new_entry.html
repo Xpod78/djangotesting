@@ -3,9 +3,12 @@
 
 {% block content %}
   {% if user.is_authenticated %}
-    <p>Test</p>
+    <h1>New Post </h1>
+    <form method="POST" class="post-form">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Save</button>
   {% else %}
-    <h1 class="warning">You need to login in order to view this feature</h1>
-  {% endif %}
-
+    <h1>Please login.</h1>
+  {% endif %}    
 {% endblock %}

@@ -8,5 +8,7 @@ urlpatterns = [
     url(r'^$', auth_views.login, {'template_name': 'blogger/login.html'}, name='login'),
     url(r'^signout/', auth_views.logout, {'template_name': 'blogger/logout.html'}, name='logout'),
     url(r'^home/', TemplateView.as_view(template_name='blogger/user.html'), name='home'),
-   
+    url(r'^all_blogs/', views.post_list, name=('all_entries')),
+    url(r'^post/(?P<pk>\d+)/$', views.post_page, name='post_page'),
+    url(r'^new_entry/', views.new_entry, name='new_entry'),
 ]
