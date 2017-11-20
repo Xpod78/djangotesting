@@ -2,8 +2,8 @@
 {% if user.is_authenticated %}
   {% block title %}{{ user.username }}{% endblock%}
   {% block content %}
-    <h1 class="p_title">Welcome, {{ user.username }}</h1>
-    <p class="p_content">the goal of this site is to easily create a private blogging system, please proceed as you see fit! The buttons on top are your options!</p>
+    <h1 class="p_title">Welcome, {{ user.username }}!</h1>
+    <p class="p_content">The goal of this site is to easily create a private blogging system, please proceed as you see fit! The buttons on top are your options!</p>
   {% endblock %}
 {% else %}
 <h1 class="warning">You are not logged in!</h1>

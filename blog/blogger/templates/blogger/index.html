@@ -15,9 +15,10 @@
     <hr>
     <center>
         {% if user.is_authenticated %}
-          <a class="button_front" href="{% url 'logout' %}">Logout</a>
-          <a class="button_front" href="{% url 'all_entries' %}">All Blog Entries</a>
-          <a class="button_front" href="{% url 'new_entry' %}">New Entry</a>
+          <a class="button_front" href="{% url 'logout' %}"> Logout </a>
+          <a class="button_front" href="{% url 'all_entries' %}"> All Blog Entries </a>
+          <a class="button_front" href="{% url 'new_entry' %}"> New Entry </a>
+          <a class="button_front" href="{% url 'home' %}"> Home </a>
         {% else %}
           <a class="button_front" href="{% url 'login' %}">Login</a>
           <a class="button_front" href="{% url 'signup_page' %}">Signup</a>
